@@ -28,7 +28,7 @@ reverseArrayInIsolate(List<int> listToReverse) async {
     if (message is List) {
       completer.complete(message);
       receivedFromWorker.close();
-      worker.kill();
+      worker.kill(); //no discernable way to reuse the isolate and communicate with it, so killing it. when another value is given, another isolate will be spawned
     }
   });
 
